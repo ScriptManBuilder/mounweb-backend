@@ -37,7 +37,7 @@ async function bootstrap() {
   await app.listen(process.env.PORT ?? 3000);
   
   // Выводим сообщение о том, что сервер запущен
-  console.log(`🚀 Server running on http://localhost:${process.env.PORT ?? 3000}`);
+  //console.log(`🚀 Server running on http://localhost:${process.env.PORT ?? 3000}`);
 }
 
 // Запускаем приложение
