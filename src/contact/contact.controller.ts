@@ -22,12 +22,12 @@ export class ContactController {
    * @Post() - декоратор для обработки POST запросов
    * 'submit' - путь эндпоинта, полный URL будет: POST /api/contact/submit
    * 
-   * @Throttle() - ограничивает количество запросов (4 запроса в час = 3600 секунд)
+   * @Throttle() - ограничивает количество запросов (20 запросов в час = 3600 секунд)
    * @HttpCode() - устанавливает HTTP статус код ответа (200 OK)
    * @Body() - декоратор для извлечения тела запроса и автоматической валидации через ContactDto
    */
   @Post('submit')
-  @Throttle({ default: { limit: 4, ttl: 3600000 } }) // 4 запроса в час (3600000 миллисекунд)
+  @Throttle({ default: { limit: 20, ttl: 3600000 } }) // 20 запросов в час по IP (3600000 миллисекунд)
   @HttpCode(HttpStatus.OK) // Возвращает статус 200 вместо стандартного 201 для POST
   async submitContactForm(@Body() contactDto: ContactDto) {
     // Передаем данные в сервис для обработки

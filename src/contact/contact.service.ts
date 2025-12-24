@@ -61,17 +61,17 @@ export class ContactService {
     // Если услуги выбраны - объединяем их через запятую, иначе - "Не выбраны"
     const servicesText = data.selectedServices?.length 
       ? data.selectedServices.join(', ') 
-      : 'Не выбраны';
+      : 'Not selected';
 
     // Создаем HTML содержимое письма
     // Используем template literals (обратные кавычки) для многострочного текста
     const emailContent = `
-      <h2>Новая заявка с сайта MOUN Digital Agency</h2>
-      <p><strong>Имя:</strong> ${data.name}</p>
-      <p><strong>Телефон:</strong> ${data.phone}</p>
-      <p><strong>Комментарий:</strong> ${data.comment || 'Не указан'}</p>
-      <p><strong>Дополнительные услуги:</strong> ${servicesText}</p>
-      <p><strong>Дата:</strong> ${new Date().toLocaleString('ru-RU')}</p>
+      <h2>New application from the websiteMOUN Digital Agency</h2>
+      <p><strong>Name:</strong> ${data.name}</p>
+      <p><strong>Phone:</strong> ${data.phone}</p>
+      <p><strong>Comment:</strong> ${data.comment || 'Not provided'}</p>
+      <p><strong>Additional Services:</strong> ${servicesText}</p>
+      <p><strong>Date:</strong> ${new Date().toLocaleString('en-US')}</p>
     `;
 
     // Отправляем email используя nodemailer
